@@ -40,12 +40,13 @@ function decodeSALT(saltString) {
         // Ignore incomplete trailing chunks
         if (chunk.length < 6) break;
 
-        // Extract values using Base95
-        const supplyVal = getBase95(chunk[0]);
-        const minutes = getBase95(chunk[1]);
-        const seconds = getBase95(chunk[2]);
-        const type = getBase95(chunk[4]);
-        const itemId = getBase95(chunk[5]);
+         // Extract values using Base95
+         const supplyVal = getBase95(chunk[0]);
+         const minutes = getBase95(chunk[1]);
+         const seconds = getBase95(chunk[2]);
+         const _gamePercentage = getBase95(chunk[3]); // Unused: percentage data
+         const type = getBase95(chunk[4]);
+         const itemId = getBase95(chunk[5]);
 
         // Format Game Time as MM:SS
         const minStr = minutes.toString().padStart(2, '0');
@@ -58,6 +59,15 @@ function decodeSALT(saltString) {
             itemId: itemId
         });
     }
+
+    // Sort buildSteps by gametime (MM:SS format), smallest first
+    buildSteps.sort((a, b) => {
+        const [aMin, aSec] = a.gametime.split(':').map(Number);
+        const [bMin, bSec] = b.gametime.split(':').map(Number);
+        const aSeconds = aMin * 60 + aSec;
+        const bSeconds = bMin * 60 + bSec;
+        return aSeconds - bSeconds;
+    });
 
     return {
         version: version,
