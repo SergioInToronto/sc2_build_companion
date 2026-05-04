@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC2 Build Order Companion</title>
+</head>
+<body>
+    <h1>SC2 Build Order Companion</h1>
+    <form id="saltForm">
+        <input type="text" id="saltInput" placeholder="Enter SALT string" required>
+        <button type="submit">Decode</button>
+    </form>
+    <pre id="result"></pre>
+    <script>
+        document.getElementById('saltForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('saltInput').value;
+            const result = decodeSALT(input);
+            document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+        });
+    </script>
+    <script src="./poc.js"></script>
+</body>
+</html>
