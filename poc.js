@@ -29,14 +29,18 @@ function decodeSALT(saltString) {
 
     for (let i = 0; i < stepData.length; i += 5) {
         // Ensure there is enough data for a full step
-        if (i + 4 >= stepData.length) break;
+        if (i + 4 >= stepData.length) {
+            console.error("Not enough data to decode a frame!");
+            break;
+        }
+
+        console.log("#######", stepData[i + 4], stepData[i + 5])
 
         steps.push({
-            type: stepData[i],      // 0: Structure, 1: Unit, 2: Morph, 3: Upgrade
-            id: stepData[i + 1],    // The internal Game ID for the item
-            supply: stepData[i + 2], // The player's supply count at execution
-            minutes: stepData[i + 3],
-            seconds: stepData[i + 4]
+            supply: stepData[i],
+            minutes: stepData[i + 1],
+            seconds: stepData[i + 2],
+            id: stepData[i + 3] + stepData[i + 4], // TODO: this addition is almost certainly wrong.
         });
     }
 
@@ -44,7 +48,7 @@ function decodeSALT(saltString) {
     // NOPE not working...
 
     return {
-        values,
+        values: [],
         version,
         title,
         steps
