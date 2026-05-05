@@ -1,84 +1,62 @@
 /**
- * Decodes a SALT string into a structured build order object.
- * Reference: Based on Spawning Tool's SALT implementation logic.
- *
- * @param {string} saltString - The raw SALT string (e.g., "!ZMy Build~...")
- * @returns {Object} Structured build order
+ * Decodes a StarCraft 2 SALT string based on the teavver/sc2-salt-visualizer logic.
+ * @param {string} saltString - The raw SALT string from the game or clipboard.
  */
 function decodeSALT(saltString) {
-    // Base95 decoding: ASCII value minus 32 (Space character)
-    const getBase95 = (char) => char.charCodeAt(0) - 32;
+    // Stage 1: Convert entire string to a numeric array (0-94)
+    const values = Array.from(saltString).map(char => char.charCodeAt(0) - 32);
 
-    // 1. Clean the string
-    // CRITICAL: Do not remove spaces, as Space (' ') is a valid Base95 character (value 0).
-    // Only strip standard line breaks.
-    const cleanStr = saltString.replace(/[\r\n]+/g, '');
+    if (values.length === 0) throw new Error("Empty SALT string");
 
-    // 2. Parse the Header
-    const delimiterIndex = cleanStr.indexOf('~');
-    if (delimiterIndex === -1) {
-        throw new Error("Invalid SALT string: Missing '~' delimiter.");
+    // Stage 2: Parse Header
+    const version = values[0];
+
+    // Find the tilde delimiter (value 94) within the numeric array
+    const titleEndIndex = values.indexOf(94, 1);
+    if (titleEndIndex === -1) {
+        throw new Error("Invalid SALT format: Title delimiter not found.");
     }
 
-    const version = getBase95(cleanStr[0]);
+    // Extract title by converting numeric values back to ASCII characters
+    const title = values.slice(1, titleEndIndex)
+        .map(v => String.fromCharCode(v + 32))
+        .join('');
 
-    // Spawning Tool typically stores the Race as the character immediately after Version
-    const raceChar = cleanStr[1];
-    const raceMap = { 'T': 'Terran', 'Z': 'Zerg', 'P': 'Protoss' };
-    const race = raceMap[raceChar] || "Unknown";
+    // Stage 3: Parse Build Steps
+    // Version 1 uses a 5-integer stride for each build step
+    const steps = [];
+    const stepData = values.slice(titleEndIndex + 1);
 
-    // Title is everything between the race character and the delimiter
-    const title = cleanStr.substring(2, delimiterIndex);
+    for (let i = 0; i < stepData.length; i += 5) {
+        // Ensure there is enough data for a full step
+        if (i + 4 >= stepData.length) break;
 
-    // 3. Parse the Build Steps (in 6-character chunks)
-    const buildStepsStr = cleanStr.substring(delimiterIndex + 1);
-    const buildSteps = [];
-
-    for (let i = 0; i < buildStepsStr.length; i += 6) {
-        const chunk = buildStepsStr.substring(i, i + 6);
-
-        // Ignore incomplete trailing chunks
-        if (chunk.length < 6) break;
-
-         // Extract values using Base95
-         const supplyVal = getBase95(chunk[0]);
-         const minutes = getBase95(chunk[1]);
-         const seconds = getBase95(chunk[2]);
-         const _gamePercentage = getBase95(chunk[3]); // Unused: percentage data
-         const type = getBase95(chunk[4]);
-         const itemId = getBase95(chunk[5]);
-
-        // Format Game Time as MM:SS
-        const minStr = minutes.toString().padStart(2, '0');
-        const secStr = seconds.toString().padStart(2, '0');
-
-        buildSteps.push({
-            gametime: `${minStr}:${secStr}`,
-            supply: supplyVal, // Note: Add offsets here if adjusting for WoL/LotV starting supplies
-            item: type,
-            itemId: itemId
+        steps.push({
+            type: stepData[i],      // 0: Structure, 1: Unit, 2: Morph, 3: Upgrade
+            id: stepData[i + 1],    // The internal Game ID for the item
+            supply: stepData[i + 2], // The player's supply count at execution
+            minutes: stepData[i + 3],
+            seconds: stepData[i + 4]
         });
     }
 
-    // Sort buildSteps by gametime (MM:SS format), smallest first
-    buildSteps.sort((a, b) => {
-        const [aMin, aSec] = a.gametime.split(':').map(Number);
-        const [bMin, bSec] = b.gametime.split(':').map(Number);
-        const aSeconds = aMin * 60 + aSec;
-        const bSeconds = bMin * 60 + bSec;
-        return aSeconds - bSeconds;
-    });
+    // const decoded = values.map((i) => String.fromCharCode(i+32))
+    // NOPE not working...
 
     return {
-        version: version,
-        title: title,
-        race: race,
-        buildSteps: buildSteps
+        values,
+        version,
+        title,
+        steps
     };
 }
 
-// --- Example Usage ---
-// ! (Version 1) | P (Protoss) | Test Build | ~ (Delimiter)
-// chunk 1: Space(0)!(1)/(15) (0) (0)b(66) => Supply 0, 01:15, Type 0, Item 66
-// const mockSALT = "!PTest Build~ !/  b";
-// console.log(JSON.stringify(decodeSALT(mockSALT), null, 2));
+// Example usage:
+try {
+    const saltString = "!My Opening~  ! @ #"; // Illustrative SALT string
+    const result = decodeSalt(saltString);
+    console.log("Build Title:", result.title);
+    console.log("Steps Count:", result.steps.length);
+} catch (e) {
+    console.error(e.message);
+}
