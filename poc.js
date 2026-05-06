@@ -34,13 +34,15 @@ function decodeSALT(saltString) {
             break;
         }
 
-        console.log("#######", stepData[i + 4], stepData[i + 5])
+        console.log("#######", stepData[i + 3], stepData[i + 4])
 
         steps.push({
             supply: stepData[i],
             minutes: stepData[i + 1],
             seconds: stepData[i + 2],
-            id: stepData[i + 3] + stepData[i + 4], // TODO: this addition is almost certainly wrong.
+            type: stepData[i + 3],
+            id: stepData[i + 4],
+            name: "TODO",
         });
     }
 

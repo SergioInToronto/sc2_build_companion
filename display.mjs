@@ -1,4 +1,10 @@
-const headers = ['Supply', 'Time', 'ID', 'Name'];
+const headers = ['Supply', 'Time', 'Type', 'ID', 'Name'];
+
+const type_map = {
+  0: 'structure',
+  1: 'unit',
+  2: 'upgrade',
+}
 
 export function renderResult(result, container) {
   const html = `
@@ -12,6 +18,7 @@ export function renderResult(result, container) {
           <tr>
             <td>${step.supply}</td>
             <td>${step.minutes}:${String(step.seconds).padStart(2, '0')}</td>
+            <td>${type_map[step.type]}</td>
             <td>${step.id}</td>
             <td>todo</td>
           </tr>
