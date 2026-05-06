@@ -1,0 +1,301 @@
+Supply    Time    Unit
+-----------------------
+  14	  0:17	  Supply Depot
+  15	  0:40	  Barracks
+  16	  0:43	  Refinery
+  19	  1:27	  Reaper
+  19	  1:28	  Orbital Command
+  20	  1:39	  Command Center
+  20	  1:48	  Supply Depot
+  21	  1:59	  Marine
+  22	  2:11	  Factory
+  23	  2:22	  , Barracks Reactor
+  25	  2:37	  Command Center
+  25	  2:50	  Orbital Command
+  26	  3:02	  Refinery, Starport
+  27	  3:09	  Hellion x2
+  27	  3:12	  Barracks Tech Lab
+  33	  3:31	  Hellion x2
+  40	  3:44	  Banshee, Marine
+  45	  3:50	  Orbital Command
+  47	  3:56	  Hellion x2
+  47	  4:02	  Supply Depot
+  51	  4:05	  Barracks Tech Lab
+  53	  4:21	  Hellion x2
+  60	  4:29	  Raven, Stimpack
+  60	  4:30	  Supply Depot,
+  65	  4:41	  Marine
+  65	  4:44	  Barracks
+  65	  4:45	  Barracks,
+  69	  4:51	  Factory Reactor
+  69	  4:52	  Engineering Bay
+  69	  4:53	  Engineering Bay
+  69	  4:57	  Refinery x2
+  69	  4:58	  Orbital Command, Supply Depot
+  71	  5:02	  Marine
+  73	  5:13	  Starport Reactor,
+  74	  5:16	  Barracks
+  74	  5:19	  Barracks
+  74	  5:21	  Terran Infantry Weapons Level 1, Terran Infantry Armor Level 1
+  74	  5:23	  Marine
+  77	  5:32	  Marine x2
+  79	  5:38	  Supply Depot
+  79	  5:39	  Supply Depot
+  79	  5:40	  Marine x2
+  79	  5:42	  Marine
+  85	  6:00	  Marine, Medivac x2, Siege Tank,
+  85	  6:01	  , Supply Depot x2
+  85	  6:03	  Marine x2
+  98	  6:04	  Barracks Reactor
+  98	  6:06	  Barracks Reactor
+  98	  6:07	  Marine x2
+  98	  6:11	  Combat Shield
+  101	  6:22	  Marine,
+  101	  6:23	  Marine
+  101	  6:24	  Marine, Supply Depot x2
+  101	  6:25	  Marine
+  106	  6:29	  Marine
+  109	  6:34	  Siege Tank,
+  114	  6:40	  , Marine
+  114	  6:44	  Marine
+  114	  6:45	  Marine x6
+  124	  6:50	  Supply Depot
+  124	  6:51	  Marine, Medivac x2
+  124	  6:53	  Refinery
+  129	  6:54	  Factory
+  129	  6:55	  Supply Depot
+  129	  6:58	  Marine
+  133	  7:02	  Armory
+  133	  7:07	  Supply Depot
+  133	  7:11	  Marine, Siege Tank, Command Center
+  135	  7:21	  Marine x2, Refinery
+  135	  7:22	  Marine x2
+  133	  7:24	  Marine x3
+  133	  7:25	  Marine
+  133	  7:28	  Medivac x2
+  133	  7:29	  Marine
+  129	  7:38	  Marine
+  129	  7:39	  Marine x2
+  129	  7:40	  Supply Depot, Marine
+  129	  7:41	  Factory Tech Lab
+  129	  7:42	  Marine x2
+  135	  7:46	  Marine x2
+  135	  7:47	  Marine, Supply Depot, Siege Tank
+  141	  7:52	  Terran Infantry Weapons Level 2
+  141	  7:55	  Terran Infantry Armor Level 2
+  141	  7:56	  Marine x2
+  141	  7:57	  Marine
+  145	  7:59	  Marine x2
+  145	  8:00	  Marine
+  145	  8:03	  Siege Tank
+  145	  8:04	  Marine
+  152	  8:06	  Marine x2
+  154	  8:19	  Marine x6
+  142	  8:24	  Marine x3
+  142	  8:25	  Siege Tank
+  148	  8:28	  Terran Vehicle Weapons Level 1
+  148	  8:36	  Marine x2
+  148	  8:37	  Marine x4
+  148	  8:41	  Siege Tank, Medivac x2
+  149	  8:50	  Marine x3
+  149	  8:51	  Barracks
+  149	  8:52	  Barracks
+  149	  8:54	  Barracks, Marine x3
+  152	  8:55	  Marine x2
+  152	  8:56	  Marine
+  150	  9:08	  Marine
+  151	  9:10	  Siege Tank
+  151	  9:12	  Planetary Fortress
+  151	  9:15	  Marauder, Siege Tank
+  151	  9:16	  Marine x4, Supply Depot
+  163	  9:19	  Marine x2
+  163	  9:20	  Marine
+  166	  9:28	  Marine
+  170	  9:33	  Marine
+  170	  9:35	  Marine x3
+  170	  9:36	  Marauder
+  170	  9:37	  Sensor Tower
+  176	  9:41	  Barracks Tech Lab
+  176	  9:42	  Barracks Tech Lab x2
+  176	  9:44	  Liberator x2
+  185	  9:45	  Siege Tank
+  185	  9:52	  Marine x3
+  174	  9:53	  Marine x2
+  174	  9:54	  Siege Tank
+  174	  9:56	  Marine x2
+  183	  10:01	  Marine x2
+  183	  10:02	  Marauder x3
+  186	  10:10	  Terran Infantry Weapons Level 3
+  186	  10:11	  Refinery
+  186	  10:12	  Refinery
+  186	  10:19	  Siege Tank
+  174	  10:24	  Command Center
+  174	  10:26	  Marauder x4
+  174	  10:27	  Siege Tank
+  185	  10:30	  Medivac
+  187	  10:41	  Marine x2
+  187	  10:42	  Terran Infantry Armor Level 3
+  188	  10:44	  Marine x3
+  188	  10:47	  Marine x4
+  195	  11:00	  Marauder x3
+  195	  11:03	  Marine
+  196	  11:05	  Marine
+  196	  11:07	  Marauder
+  196	  11:14	  Supply Depot, Marine x2
+  196	  11:15	  Marine x2
+  200	  11:24	  Marine
+  200	  11:25	  Marine
+  200	  11:26	  Siege Tank
+  200	  11:27	  Siege Tank
+  200	  11:30	  Marine x2, Marauder x4
+  200	  11:32	  Marine x4
+  164	  11:34	  Medivac x2
+  163	  11:43	  Marine x2
+  165	  11:47	  Marine
+  165	  11:48	  Marine
+  165	  11:52	  Marine x5, Command Center
+  165	  11:53	  Marauder x2
+  176	  11:58	  Marauder
+  178	  12:04	  Siege Tank
+  178	  12:05	  Medivac x2, Marine
+  180	  12:09	  Marine x3
+  180	  12:11	  Marauder
+  180	  12:15	  Marine x2, Marauder x2
+  188	  12:20	  Marine
+  188	  12:21	  Marine x2
+  180	  12:23	  Marine
+  155	  12:31	  Marine x2
+  155	  12:34	  Marine
+  155	  12:35	  Marine, Marauder
+  155	  12:37	  , Marauder
+  145	  12:42	  Planetary Fortress
+  142	  12:45	  Marine x5
+  142	  12:46	  Siege Tank
+  147	  12:54	  Siege Tank, Marauder
+  150	  12:59	  Marine x2
+  150	  13:00	  Medivac
+  150	  13:01	  Medivac
+  150	  13:03	  Marine, Marauder
+  155	  13:05	  Concussive Shells
+  155	  13:08	  Orbital Command
+  155	  13:10	  Marauder
+  155	  13:12	  Marine x2
+  159	  13:13	  Marine x2
+  159	  13:19	  Marine
+  162	  13:20	  Marine x2, Marauder x2
+  146	  13:27	  Marauder
+  146	  13:29	  Siege Tank
+  146	  13:31	  Siege Tank
+  146	  13:32	  Marauder
+  145	  13:34	  Marine x2
+  145	  13:35	  Marine x3
+  145	  13:39	  Medivac
+  145	  13:40	  Medivac
+  143	  13:41	  Marauder
+  143	  13:44	  Marine x2
+  143	  13:46	  Marauder
+  143	  13:47	  Marine
+  149	  13:48	  Marauder
+  149	  13:52	  Marine
+  149	  13:53	  Starport
+  149	  13:54	  Marauder
+  152	  13:57	  Marine x2, Ghost Academy
+  152	  13:59	  Marine x2
+  156	  14:02	  Marauder
+  156	  14:08	  Marauder
+  156	  14:09	  Marine x3
+  155	  14:10	  Marauder
+  155	  14:15	  Marauder
+  142	  14:18	  Siege Tank x2
+  142	  14:20	  Marine x2
+  142	  14:21	  Marine x2
+  154	  14:24	  Marauder
+  154	  14:29	  Medivac
+  154	  14:36	  Starport Reactor
+  160	  14:38	  Marauder x3, Sensor Tower, Marine
+  160	  14:39	  Marine
+  160	  14:44	  Marine x2
+  160	  14:45	  Marine x2
+  166	  14:50	  Siege Tank x2
+  166	  14:52	  Liberator
+  175	  14:57	  Ghost
+  175	  14:58	  Personal Cloaking
+  177	  15:01	  Terran Vehicle Weapons Level 2
+  177	  15:09	  Marauder x3, Liberator
+  184	  15:18	  Liberator x2
+  190	  15:22	  Missile Turret
+  190	  15:24	  Refinery
+  190	  15:25	  Siege Tank, Refinery
+  190	  15:26	  Marauder
+  195	  15:30	  Orbital Command
+  195	  15:34	  Ghost x2
+  195	  15:35	  Sensor Tower
+  185	  15:56	  Missile Turret, Liberator x2
+  187	  15:57	  Siege Tank
+  187	  16:02	  Marine x2
+  186	  16:10	  Marauder x2
+  185	  16:14	  Siege Tank
+  188	  16:32	  Refinery
+  188	  16:38	  Siege Tank
+  189	  16:41	  Marine x4
+  189	  16:42	  Ghost x2
+  189	  16:44	  Ghost
+  188	  16:48	  Marine x2
+  188	  16:50	  Marine x3
+  188	  16:51	  Siege Tank
+  166	  16:59	  Marine
+  156	  17:02	  Marine x3
+  156	  17:05	  Liberator x3
+  156	  17:06	  Marine
+  156	  17:07	  Marine
+  156	  17:08	  Marine x2, Marauder
+  152	  17:11	  Marine
+  148	  17:20	  Ghost x2
+  152	  17:25	  Siege Tank x2
+  158	  17:36	  Sensor Tower
+  158	  17:39	  Orbital Command
+  154	  17:46	  Marauder
+  155	  17:54	  Marine x3
+  155	  17:57	  Marine x4
+  155	  17:58	  Marine
+  162	  18:25	  Ghost
+  162	  18:27	  Marine x4
+  163	  18:28	  Marine
+  163	  18:38	  Marine
+  163	  18:46	  Siege Tank
+  163	  18:52	  Marine x3
+  147	  19:24	  Supply Depot
+  147	  19:27	  Supply Depot, Orbital Command
+  142	  19:45	  Marine, Liberator
+  149	  19:48	  Ghost, Marine x2, Marauder x2
+  157	  19:53	  Marine x4, Marauder, Siege Tank
+  157	  19:54	  Siege Tank
+  108	  20:10	  Marauder x2
+  112	  20:15	  Marauder
+  112	  20:17	  Marauder
+  112	  20:18	  Medivac
+  118	  20:25	  Marine x4
+  118	  20:26	  Marine x4, Widow Mine, Siege Tank
+  131	  20:31	  Marauder
+  131	  20:33	  Medivac
+  135	  20:38	  Medivac
+  135	  20:40	  Medivac
+  139	  20:47	  Widow Mine
+  141	  20:50	  Marauder x3
+  141	  20:51	  Marine
+  141	  20:53	  Marine
+  146	  21:05	  Siege Tank
+  149	  21:15	  Siege Tank
+  149	  21:16	  Marauder x2, Marine
+  149	  21:18	  Marine x2
+  152	  21:31	  Marauder x2, Marine
+  152	  21:41	  Siege Tank
+  146	  21:50	  Siege Tank
+  120	  22:01	  Marine x3
+  115	  22:14	  Liberator
+  115	  22:18	  Marine
+  116	  22:25	  Marine
+  117	  22:30	  Marine
+  118	  22:44	  Marauder
+  118	  22:45	  Marauder
+  118	  22:59	  Medivac x2
