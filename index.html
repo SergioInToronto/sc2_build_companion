@@ -12,15 +12,17 @@
         <input type="text" id="saltInput" placeholder="Enter SALT string" required style="width: 350px">
         <button type="submit">Decode</button>
     </form>
-    <pre id="result"></pre>
-    <script>
+    <div id="result"></div>
+    <script src="./poc.js"></script>
+    <script type="module">
+        import { renderResult } from './display.mjs';
         document.getElementById('saltForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const input = document.getElementById('saltInput').value;
+            const container = document.getElementById('result');
             const result = decodeSALT(input);
-            document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+            renderResult(result, container);
         });
     </script>
-    <script src="./poc.js"></script>
 </body>
 </html>
