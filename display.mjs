@@ -1,4 +1,4 @@
-const headers = ['Supply', 'Time', 'ID'];
+const headers = ['Supply', 'Time', 'ID', 'Name'];
 
 export function renderResult(result, container) {
   const html = `
@@ -13,6 +13,7 @@ export function renderResult(result, container) {
             <td>${step.supply}</td>
             <td>${step.minutes}:${String(step.seconds).padStart(2, '0')}</td>
             <td>${step.id}</td>
+            <td>todo</td>
           </tr>
         `).join('')}
       </tbody>
