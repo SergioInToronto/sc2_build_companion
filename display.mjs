@@ -10,7 +10,7 @@ export function renderResult(result, container) {
     <div class="step-card">
       <div class="step-icon"></div>
       <div class="step-info">
-        <div class="step-top"><span>${step.minutes}:${String(step.seconds).padStart(2, '0')}</span><span>${step.supply}/200</span></div>
+        <div class="step-top"><span class="step-time">${step.minutes}:${String(step.seconds).padStart(2, '0')}</span><span class="step-supply">${step.supply}/200</span></div>
         <div class="step-bottom">${type_map[step.type]} - ${step.id}</div>
       </div>
     </div>
