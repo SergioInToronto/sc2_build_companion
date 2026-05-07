@@ -5,6 +5,7 @@ const type_map = {
 }
 
 export function renderResult(result, container) {
+  console.log("############", result);
   const html = result.steps.map(step => `
     <div class="step-card">
       <div class="step-icon"></div>
