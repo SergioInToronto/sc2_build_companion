@@ -1,5 +1,3 @@
-const headers = ['Supply', 'Time', 'Type', 'ID', 'Name'];
-
 const type_map = {
   0: 'structure',
   1: 'unit',
@@ -7,24 +5,15 @@ const type_map = {
 }
 
 export function renderResult(result, container) {
-  const html = `
-    <h2>${result.title}</h2>
-    <table>
-      <thead>
-        <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
-      </thead>
-      <tbody>
-        ${result.steps.map(step => `
-          <tr>
-            <td>${step.supply}</td>
-            <td>${step.minutes}:${String(step.seconds).padStart(2, '0')}</td>
-            <td>${type_map[step.type]}</td>
-            <td>${step.id}</td>
-            <td>todo</td>
-          </tr>
-        `).join('')}
-      </tbody>
-    </table>`;
+  const html = result.steps.map(step => `
+    <div class="step-card">
+      <div class="step-icon"></div>
+      <div class="step-info">
+        <div class="step-top"><span>${step.minutes}:${String(step.seconds).padStart(2, '0')}</span><span>${step.supply}/200</span></div>
+        <div class="step-bottom">${type_map[step.type]} - ${step.id}</div>
+      </div>
+    </div>
+  `).join('');
 
   container.innerHTML = html;
 }
