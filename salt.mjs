@@ -2,7 +2,7 @@
  * Decodes a StarCraft 2 SALT string based on the teavver/sc2-salt-visualizer logic.
  * @param {string} saltString - The raw SALT string from the game or clipboard.
  */
-function decodeSALT(saltString) {
+export function decodeSALT(saltString) {
     // Stage 1: Convert entire string to a numeric array (0-94)
     const values = Array.from(saltString).map(char => char.charCodeAt(0) - 32);
 
@@ -46,23 +46,10 @@ function decodeSALT(saltString) {
         });
     }
 
-    // const decoded = values.map((i) => String.fromCharCode(i+32))
-    // NOPE not working...
-
     return {
         values: [],
         version,
         title,
         steps
     };
-}
-
-// Example usage:
-try {
-    const saltString = "!My Opening~  ! @ #"; // Illustrative SALT string
-    const result = decodeSalt(saltString);
-    console.log("Build Title:", result.title);
-    console.log("Steps Count:", result.steps.length);
-} catch (e) {
-    console.error(e.message);
 }

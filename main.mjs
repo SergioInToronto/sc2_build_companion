@@ -1,3 +1,4 @@
+import { decodeSALT } from './salt.mjs';
 import { renderResult } from './display.mjs';
 import { initTimer, enableTimer } from './timer.mjs';
 
