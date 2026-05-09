@@ -21,6 +21,7 @@ export function initTimer() {
   const btn = document.getElementById('timerStart');
   const display = document.getElementById('timerDisplay');
 
+  btn.disabled = true;
   display.textContent = formatTime(elapsedSeconds);
 
   btn.addEventListener('click', () => {
@@ -35,4 +36,8 @@ export function initTimer() {
       btn.textContent = 'Start';
     }
   });
+}
+
+export function enableTimer() {
+  document.getElementById('timerStart').disabled = false;
 }

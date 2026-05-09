@@ -1,5 +1,5 @@
 import { renderResult } from './display.mjs';
-import { initTimer } from './timer.mjs';
+import { initTimer, enableTimer } from './timer.mjs';
 
 initTimer();
 
@@ -9,4 +9,7 @@ document.getElementById('saltForm').addEventListener('submit', function(e) {
     const container = document.getElementById('result');
     const result = decodeSALT(input);
     renderResult(result, container);
+    if (container.children.length > 0) {
+        enableTimer();
+    }
 });
