@@ -23,8 +23,17 @@
             background: #1a1a1a;
             display: flex;
             flex-direction: column;
-            padding: 24px 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #1a1a1a;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
             gap: 16px;
+            padding: 24px 16px 16px;
         }
 
         h1 { font-size: 1.8rem; }
@@ -68,6 +77,34 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            padding: 0 16px 24px;
+        }
+
+        #timer {
+            display: flex;
+            align-items: center;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 8px 12px;
+        }
+
+        #timerStart {
+            padding: 8px 16px;
+            background: #2d5f8a;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        #timerStart:hover { background: #3a78b0; }
+
+        #timerDisplay {
+            margin-left: auto;
+            font-size: 1.2rem;
+            font-family: monospace;
+            color: #e0e0e0;
         }
 
         .step-card {
@@ -118,12 +155,18 @@
 </head>
 <body>
     <div id="app">
-        <h1>SC2 Build Order Companion</h1>
-        <p class="subtitle"><a href="https://lotv.spawningtool.com/build/179524/" target="_new">Get example SALT from SpawningTool</a></p>
-        <form id="saltForm">
-            <input type="text" id="saltInput" placeholder="Enter SALT string" required>
-            <button type="submit">Decode</button>
-        </form>
+        <header>
+            <h1>SC2 Build Order Companion</h1>
+            <p class="subtitle"><a href="https://lotv.spawningtool.com/build/179524/" target="_new">Get example SALT from SpawningTool</a></p>
+            <form id="saltForm">
+                <input type="text" id="saltInput" placeholder="Enter SALT string" required>
+                <button type="submit">Decode</button>
+            </form>
+            <div id="timer">
+                <button id="timerStart">Start</button>
+                <span id="timerDisplay">00:00</span>
+            </div>
+        </header>
         <div id="result"></div>
     </div>
     <script src="./poc.js"></script>
