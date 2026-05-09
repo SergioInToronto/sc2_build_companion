@@ -1,4 +1,7 @@
 import { renderResult } from './display.mjs';
+import { initTimer } from './timer.mjs';
+
+initTimer();
 
 document.getElementById('saltForm').addEventListener('submit', function(e) {
     e.preventDefault();
