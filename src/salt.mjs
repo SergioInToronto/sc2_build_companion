@@ -10,6 +10,7 @@ export function decodeSALT(saltString) {
 
     // Stage 2: Parse Header
     const version = values[0];
+    if (version !== 4) throw "Only version 4 is currently supported"
 
     // Find the tilde delimiter (value 94) within the numeric array
     const titleEndIndex = values.indexOf(94, 1);
@@ -33,8 +34,6 @@ export function decodeSALT(saltString) {
             console.error("Not enough data to decode a frame!");
             break;
         }
-
-        console.log("#######", stepData[i + 3], stepData[i + 4])
 
         steps.push({
             supply: stepData[i],
