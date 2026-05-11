@@ -8,19 +8,53 @@
 </head>
 <body>
     <div id="app">
-        <header>
-            <h1>Build Order Companion</h1>
-            <p class="subtitle"><a href="https://lotv.spawningtool.com/build/179524/" target="_new">Get example SALT from SpawningTool</a></p>
-            <form id="saltForm">
-                <input type="text" id="saltInput" placeholder="Enter SALT string" required>
-                <button type="submit">Decode</button>
-            </form>
-            <div id="timer">
-                <button id="timerStart">Start</button>
-                <span id="timerDisplay">00:00</span>
+        <div id="slider-track">
+
+            <!-- Screen 1: Race Selection -->
+            <div class="screen" id="screen-race">
+                <header class="screen-header">
+                    <h1>Build Order Companion</h1>
+                </header>
+                <ul class="option-list" id="raceList">
+                    <li class="option-item" data-race="custom">Custom</li>
+                    <li class="option-item" data-race="terran">Terran</li>
+                    <li class="option-item" data-race="zerg">Zerg</li>
+                    <li class="option-item" data-race="protoss">Protoss</li>
+                </ul>
             </div>
-        </header>
-        <div id="result"></div>
+
+            <!-- Screen 2: Enter SALT or Select Build -->
+            <div class="screen" id="screen-select">
+                <header class="screen-header">
+                    <button class="back-btn" id="backToRace">&#8249;</button>
+                    <h1 id="screen2Title">Select a Build</h1>
+                </header>
+                <!-- Custom: SALT form -->
+                <div id="saltView">
+                    <p class="subtitle"><a href="https://lotv.spawningtool.com/build/200566/" target="_new">Get example SALT from SpawningTool</a></p>
+                    <form id="saltForm">
+                        <input type="text" id="saltInput" placeholder="Enter SALT string" required>
+                        <button type="submit">Decode</button>
+                    </form>
+                </div>
+                <!-- Race: preset build list -->
+                <ul class="option-list" id="buildList"></ul>
+            </div>
+
+            <!-- Screen 3: Build Order Result -->
+            <div class="screen" id="screen-result">
+                <header class="screen-header">
+                    <button class="back-btn" id="backToSelect">&#8249;</button>
+                    <h1 id="screen3Title">Build Order</h1>
+                </header>
+                <div id="timer">
+                    <button id="timerStart">Start</button>
+                    <span id="timerDisplay">00:00</span>
+                </div>
+                <div id="result"></div>
+            </div>
+
+        </div>
     </div>
     <script type="module" src="./src/main.mjs"></script>
 </body>
