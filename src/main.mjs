@@ -51,7 +51,7 @@ function showCustomView() {
 }
 
 function showBuildListView(race) {
-    screen2Title.textContent = 'Select a Build';
+    screen2Title.textContent = `${race} builds`;
     saltView.style.display   = 'none';
     buildList.style.display  = 'flex';
 
