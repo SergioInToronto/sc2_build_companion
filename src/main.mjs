@@ -1,6 +1,7 @@
 import { decodeSALT } from './salt.mjs';
 import { renderResult } from './display.mjs';
 import { initTimer, enableTimer } from './timer.mjs';
+import { createHighlighter } from './highlight.mjs';
 
 // ---------------------------------------------------------------------------
 // Preset build orders (placeholders — replace SALT strings with real ones)
@@ -27,6 +28,7 @@ const PRESET_BUILDS = {
 // Navigation
 // ---------------------------------------------------------------------------
 const track = document.getElementById('slider-track');
+const resultContainer = document.getElementById('result');
 
 // Map screen index to translateX percentage of the track element.
 // Track is 300% wide; each screen is 33.333% of the track = 100% of viewport.
@@ -73,11 +75,10 @@ function showBuildListView(race) {
 // Load a SALT string, render result, go to screen 3
 // ---------------------------------------------------------------------------
 function loadBuildAndAdvance(saltString) {
-    const container = document.getElementById('result');
     try {
         const result = decodeSALT(saltString);
-        renderResult(result, container);
-        if (container.children.length > 0) {
+        renderResult(result, resultContainer);
+        if (resultContainer.children.length > 0) {
             enableTimer();
         }
         navigateTo(2);
@@ -120,4 +121,4 @@ document.getElementById('backToSelect').addEventListener('click', () => navigate
 // ---------------------------------------------------------------------------
 // Timer (elements are always in the DOM on screen 3)
 // ---------------------------------------------------------------------------
-initTimer();
+initTimer([createHighlighter(resultContainer)]);

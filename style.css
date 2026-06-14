@@ -199,6 +199,12 @@ form button:hover { background: #3a78b0; }
     border: 1px solid #333;
     border-radius: 6px;
     padding: 10px 12px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.step-card.step-active {
+    border-color: #7aaedf;
+    background: #1c2d3a;
 }
 
 .step-icon {

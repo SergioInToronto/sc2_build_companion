@@ -20,11 +20,13 @@ function currentGameSeconds() {
   return accumulatedGameSeconds + realElapsed * SPEED_FACTOR;
 }
 
-function tick(displayEl) {
-  displayEl.textContent = formatTime(Math.floor(currentGameSeconds()));
+function tick(displayEl, callbacks) {
+  const t = Math.floor(currentGameSeconds());
+  displayEl.textContent = formatTime(t);
+  callbacks.forEach(fn => fn(t));
 }
 
-export function initTimer() {
+export function initTimer(callbacks = []) {
   const btn = document.getElementById('timerStart');
   const display = document.getElementById('timerDisplay');
 
@@ -35,7 +37,7 @@ export function initTimer() {
     if (intervalId === null) {
       // Start
       startRealTime = Date.now();
-      intervalId = setInterval(() => tick(display), 250);
+      intervalId = setInterval(() => tick(display, callbacks), 250);
       btn.textContent = 'Pause';
     } else {
       // Pause — snapshot the current game time before stopping
