@@ -13,7 +13,6 @@ export function renderResult(result, container) {
     const stepTime = step.minutes * 60 + step.seconds;
     return `
     <div class="step-card" data-step-time="${stepTime}">
-      <div class="step-icon"></div>
       <div class="step-info">
         <div class="step-top"><span class="step-time">${step.minutes}:${String(step.seconds).padStart(2, '0')}</span><span class="step-supply">${step.supply}/200</span></div>
         <div class="step-bottom">${name}</div>
