@@ -81,6 +81,7 @@ function loadBuildAndAdvance(saltString) {
         if (resultContainer.children.length > 0) {
             enableTimer();
         }
+        document.getElementById('screen-result').scrollTop = 0;
         navigateTo(2);
     } catch (err) {
         console.error('Failed to decode SALT:', err);

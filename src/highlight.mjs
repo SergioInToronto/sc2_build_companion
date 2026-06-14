@@ -1,12 +1,12 @@
 /**
- * createHighlighter — returns a tick callback that highlights the current
+ * createHighlighter — returns a tick callback that highlights the upcoming
  * build-order step(s) based on the game timer.
  *
  * Rules:
- *  - Highlight all cards whose data-step-time equals the highest step-time
- *    that is <= gameSeconds (i.e. the most recently reached step(s)).
- *  - Edge case: if gameSeconds is before the very first step, highlight the
- *    first card anyway.
+ *  - Highlight all cards whose data-step-time equals the lowest step-time
+ *    that is strictly greater than gameSeconds (i.e. the next step(s)).
+ *  - Edge case: before the first step, highlight the first card.
+ *  - Edge case: after the last step, highlight the last card.
  *  - Scroll the first newly-active card into view when the active set changes.
  */
 export function createHighlighter(containerEl) {
@@ -16,20 +16,19 @@ export function createHighlighter(containerEl) {
     const cards = Array.from(containerEl.querySelectorAll('.step-card'));
     if (cards.length === 0) return;
 
-    // Build a sorted list of unique step times
     const stepTimes = cards.map(c => parseInt(c.dataset.stepTime, 10));
 
-    // Find the highest step-time that has been reached
+    // Find the lowest step-time strictly greater than gameSeconds (next step)
     let activeTime = null;
     for (const t of stepTimes) {
-      if (t <= gameSeconds) {
-        if (activeTime === null || t > activeTime) activeTime = t;
+      if (t > gameSeconds) {
+        if (activeTime === null || t < activeTime) activeTime = t;
       }
     }
 
-    // Edge case: timer hasn't reached any step yet — highlight the first card
+    // Edge case: no future step — stay on the last card
     if (activeTime === null) {
-      activeTime = stepTimes[0];
+      activeTime = stepTimes[stepTimes.length - 1];
     }
 
     const changed = activeTime !== lastActiveTime;
