@@ -1,6 +1,8 @@
 const START_SECONDS = -3;
+const SPEED_FACTOR = 5734 / 4096; // ~1.399, roughly 40% faster than real time
 
-let elapsedSeconds = START_SECONDS;
+let startRealTime = null;   // Date.now() when the timer was last started
+let accumulatedGameSeconds = START_SECONDS; // game-time seconds accumulated before last pause
 let intervalId = null;
 
 function formatTime(s) {
@@ -12,9 +14,14 @@ function formatTime(s) {
   return negative ? `-${formatted}` : formatted;
 }
 
+function currentGameSeconds() {
+  if (startRealTime === null) return accumulatedGameSeconds;
+  const realElapsed = (Date.now() - startRealTime) / 1000;
+  return accumulatedGameSeconds + realElapsed * SPEED_FACTOR;
+}
+
 function tick(displayEl) {
-  elapsedSeconds += 1;
-  displayEl.textContent = formatTime(elapsedSeconds);
+  displayEl.textContent = formatTime(Math.floor(currentGameSeconds()));
 }
 
 export function initTimer() {
@@ -22,15 +29,18 @@ export function initTimer() {
   const display = document.getElementById('timerDisplay');
 
   btn.disabled = true;
-  display.textContent = formatTime(elapsedSeconds);
+  display.textContent = formatTime(Math.floor(accumulatedGameSeconds));
 
   btn.addEventListener('click', () => {
     if (intervalId === null) {
       // Start
-      intervalId = setInterval(() => tick(display), 1000);
+      startRealTime = Date.now();
+      intervalId = setInterval(() => tick(display), 250);
       btn.textContent = 'Pause';
     } else {
-      // Pause
+      // Pause — snapshot the current game time before stopping
+      accumulatedGameSeconds = currentGameSeconds();
+      startRealTime = null;
       clearInterval(intervalId);
       intervalId = null;
       btn.textContent = 'Start';
